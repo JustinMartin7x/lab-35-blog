@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost } from '../../../actions/postActions';
+import { deleteComment } from '../../../actions/commentActions';
 import { getComments } from '../../../selectors/commentSelector';
 import CommentForm from '../Form/CommentForm';
 
@@ -10,6 +11,9 @@ export default function PostItem({ title, text, index }) {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(deletePost(title));
+  };
+  const handleDelete = (index, i) => {
+    dispatch(deleteComment(index, i));
   };
 
   console.log(comments);
@@ -22,8 +26,12 @@ export default function PostItem({ title, text, index }) {
       <CommentForm index={index} />
       <div>
         {comments[index]
-          ? comments[index].map((comment) => (
-              <div key={comment + Math.random()}> {comment} </div>
+          ? comments[index].map((comment, i) => (
+              <div key={comment + Math.random()}>
+                {' '}
+                {comment}
+                <button onClick={() => handleDelete(index, i)}>Delete</button>
+              </div>
             ))
           : null}
       </div>
