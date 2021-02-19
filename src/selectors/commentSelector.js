@@ -1,2 +1,1 @@
-export const getCommentsByIndex = (index) => (state) =>
-  state?.comments?.[index];
+export const getComments = (state) => state.comments;
