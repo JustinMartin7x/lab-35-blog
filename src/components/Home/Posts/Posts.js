@@ -5,9 +5,9 @@ import PostItem from './PostItem';
 export default function Posts() {
   const posts = useSelector(getPosts);
 
-  const PostElements = posts.map((post) => (
+  const PostElements = posts.map((post, index) => (
     <ul key={post.title}>
-      <PostItem {...post} />
+      <PostItem index={index} {...post} />
     </ul>
   ));
 
