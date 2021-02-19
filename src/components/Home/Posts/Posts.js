@@ -1,14 +1,14 @@
 import React from 'react';
-import { useSelector } from '../../../State/postProvider';
+import { useSelector } from 'react-redux';
 import { getPosts } from '../../../selectors/postSelector';
 import PostItem from './PostItem';
 export default function Posts() {
   const posts = useSelector(getPosts);
 
   const PostElements = posts.map((post) => (
-    <li key={post.title}>
+    <ul key={post.title}>
       <PostItem {...post} />
-    </li>
+    </ul>
   ));
 
   return <ul>{PostElements}</ul>;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from '../../../State/postProvider';
+import { useDispatch } from 'react-redux';
 import { createPost } from '../../../actions/postActions';
 
 export default function Form() {

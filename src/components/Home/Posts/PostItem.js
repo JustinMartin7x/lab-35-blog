@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from '../../../State/postProvider';
+import { useDispatch } from 'react-redux';
 import { deletePost } from '../../../actions/postActions';
 
 export default function PostItem({ title, text }) {
